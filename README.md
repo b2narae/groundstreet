@@ -12,10 +12,10 @@ This is a stock trading system for the US NASDAQ market created for fun. The ent
 - Kotlin 1.8.0
 
 ## Event Definition 
-![](Event Storming.png)
+![Event Storming](Event%20Storming.png)
 
 ## Entity Model 
-![](Entity Modeler.png)
+![Entity Modeler](Entity%20Modeler.png)
 
 ## Directory
 ```

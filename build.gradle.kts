@@ -1,5 +1,7 @@
 plugins {
     kotlin("jvm") version "1.8.0"
+    id ("org.springframework.boot") version "3.1.0"
+    id ("io.spring.dependency-management") version "1.1.0"
 }
 
 group = "org.example.groundstreet"
@@ -12,6 +14,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-starter-web:3.1.0")
+    implementation("org.springframework.boot:spring-boot-starter-websocket")
 }
 
 java {

@@ -5,15 +5,25 @@ import org.springframework.web.socket.TextMessage
 import org.springframework.web.socket.WebSocketSession
 import org.springframework.web.socket.handler.TextWebSocketHandler
 
-class UpbitWebSocketHandler : TextWebSocketHandler() { // without () leads to error.
-    override fun afterConnectionEstablished(session: WebSocketSession) {
+// Custom handler for domain logic or business requirement.
+class UpbitWebSocketHandler : TextWebSocketHandler() { // () : Kotlin Syntax -> Customization
 
+    // called when "WebSocket" connection is established.
+    override fun afterConnectionEstablished(session: WebSocketSession) {
+        println("after Connection Established")
+
+        val request = "[{\"ticket\" : \"test\"}, {\"type\" : \"ticker\", \"codes\": [\"KRW-BTC\", \"KRW-ETH\"]}, {\"format\" : \"SIMPLE\"}]"
+        session.sendMessage(TextMessage(request))
     }
     override fun handleTextMessage(session: WebSocketSession, message: TextMessage) {
-        super.handleTextMessage(session, message)
+        println("handlerTextMessage")
+
+        val receivedMessage = message.payload
+        println("receivedMessage : " + receivedMessage)
+
     }
 
     override fun afterConnectionClosed(session: WebSocketSession, status: CloseStatus) {
-        super.afterConnectionClosed(session, status)
+        println("afterConnectionClosed")
     }
 }

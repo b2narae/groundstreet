@@ -8,7 +8,7 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @Configuration
 @EnableWebSocket
-class WebSocketConfig : WebSocketConfigurer {
+class WebSocketConfig: WebSocketConfigurer {
 
     override fun registerWebSocketHandlers(registry: WebSocketHandlerRegistry) {
         registry.addHandler(UpbitWebSocketHandler(), "/websocket/v1")

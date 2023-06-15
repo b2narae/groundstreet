@@ -10,6 +10,9 @@ This is a stock trading system for the US NASDAQ market created for fun. The ent
 - Java JDK 17+
 - Gradle 7.6.1
 - Kotlin 1.8.0
+- junit 5.9.3
+- spring.dependency-management 1.1.0
+
 
 ## Event Definition 
 ![Event Storming](Event%20Storming.png)
@@ -29,6 +32,13 @@ groundstreet
 │   │   │               ├── Application.kt
 │   │   │               └── controller
 │   │   │                   └── HelloWorldController.kt #테스트용
+│   │   │               └── client
+│   │   │                   └── UpbitWebSocketClient.kt
+│   │   │               └── config
+│   │   │                   └── WebSocketConfig.kt
+│   │   │               └── handler
+│   │   │                   └── UpbitWebSocketHandler.kt #Specific module for Upbit
+│   │   │                   └── WebSocketSessionHandler.kt #Generic WebSocketSessionHandler.
 │   │   └── resources
 │   │       └── application.properties
 │   └── test
@@ -38,5 +48,7 @@ groundstreet
 │                   └── groundstreet
 │                       └── controller
 │                           └── HelloWorldControllerTest.kt
+│                       └── client
+│                           └── WebSocketTest.kt
 └── build.gradle
 ```

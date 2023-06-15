@@ -12,13 +12,6 @@ class WebSocketTest {
     @Test
     fun testWebSocketConnection() {
         upbitWebSocketClient.connectToUpbitWebSocket()
-
-        Thread.sleep(5000)
-
-        // Perform any assertions or checks to verify the WebSocket functionality
-        // For example, you can check if certain messages were received or process the received data
-
-        // Disconnect from the WebSocket
-        // Perform any necessary cleanup
+        Thread.sleep(50000)
     }
 }

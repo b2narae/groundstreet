@@ -8,13 +8,11 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @Configuration
 @EnableWebSocket
-class WebSocketConfig: WebSocketConfigurer {
+open class WebSocketConfig: WebSocketConfigurer {
 
+    // Server-side Setup
     override fun registerWebSocketHandlers(registry: WebSocketHandlerRegistry) {
         registry.addHandler(UpbitWebSocketHandler(), "/websocket/v1")
-            .setAllowedOrigins("https://api.upbit.com")
-            .setAllowedOrigins("http://api.upbit.com")
-            .setAllowedOrigins("https://upbit.com")
-            .setAllowedOrigins("http://upbit.com")
+            .setAllowedOrigins("*")
     }
 }

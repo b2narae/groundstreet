@@ -10,6 +10,7 @@ import java.net.URI
 
 @Component
 class UpbitWebSocketClient {
+
     @Autowired
     private lateinit var webSocketSessionHandler: WebSocketSessionHandler
 
@@ -22,6 +23,7 @@ class UpbitWebSocketClient {
         val uri = URI("wss://api.upbit.com/websocket/v1")
         val webSocketClient = StandardWebSocketClient()
         val connectionManager = WebSocketConnectionManager(webSocketClient, webSocketSessionHandler, uri.toString())
+
         connectionManager.start();
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler
 import java.lang.reflect.Method
 
 // [Seperation of concerns] focuses on the general WebSocket session manangement and lifecycle events
+// 1. Setting Delegate (reflection)
 @Component
 class WebSocketSessionHandler : BinaryWebSocketHandler() {
     private lateinit var delegate: BinaryWebSocketHandler
@@ -22,7 +23,6 @@ class WebSocketSessionHandler : BinaryWebSocketHandler() {
         afterConnectionEstablishedMethod.isAccessible = true
         handleBinaryMessageMethod = delegate.javaClass.getDeclaredMethod("handleBinaryMessage", WebSocketSession::class.java, BinaryMessage::class.java)
         handleBinaryMessageMethod.isAccessible = true
-
     }
 
     override fun afterConnectionEstablished(session: WebSocketSession) {
@@ -32,7 +32,6 @@ class WebSocketSessionHandler : BinaryWebSocketHandler() {
 
     override fun handleBinaryMessage(session: WebSocketSession, message: BinaryMessage) {
         handleBinaryMessageMethod.invoke(delegate, session, message)
-        super.handleBinaryMessage(session, message)
     }
 
     override fun afterConnectionClosed(session: WebSocketSession, status: CloseStatus) {

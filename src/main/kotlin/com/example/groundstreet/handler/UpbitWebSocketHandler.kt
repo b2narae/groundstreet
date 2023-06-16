@@ -1,5 +1,8 @@
 package com.example.groundstreet.handler
 
+import com.example.groundstreet.data.TickerData
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.serializer
 import org.springframework.stereotype.Component
 import org.springframework.web.socket.BinaryMessage
 import org.springframework.web.socket.CloseStatus
@@ -16,7 +19,7 @@ class UpbitWebSocketHandler : BinaryWebSocketHandler() { // () : Kotlin Syntax -
     override fun afterConnectionEstablished(session: WebSocketSession) {
         println("After Connection Established")
 
-        val request = "[{\"ticket\" : \"test\"}, {\"type\" : \"ticker\", \"codes\": [\"KRW-BTC\"]}]"
+        val request = "[{\"ticket\" : \"test\"}, {\"type\" : \"ticker\", \"codes\": [\"KRW-ETH\"]}]"
         session.sendMessage(TextMessage(request))
 
         println("Request is sent")
@@ -24,9 +27,14 @@ class UpbitWebSocketHandler : BinaryWebSocketHandler() { // () : Kotlin Syntax -
 
     override fun handleBinaryMessage(session: WebSocketSession, message: BinaryMessage) {
         println("handlerTextMessage")
+
+        // Converting
         val receivedMessage = message.payload.array()
         val decodedMessage = String(receivedMessage, Charsets.UTF_8)
+        val tickerData: TickerData = Json {ignoreUnknownKeys = true }.decodeFromString(serializer(), decodedMessage)
+
         println("receivedMessage : $decodedMessage")
+        println("TickerData: $tickerData")
     }
 
     override fun afterConnectionClosed(session: WebSocketSession, status: CloseStatus) {

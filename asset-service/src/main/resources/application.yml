@@ -1,0 +1,23 @@
+server:
+    port: 8090
+
+spring:
+    application:
+        name: asset-service
+
+eureka:
+    instance:
+        hostname: localhost
+        ip-address: 127.0.0.1
+        non-secure-port: 8761
+        prefer-ip-address: true
+        instance-id: my-instance
+        appname: service-discovery
+    client:
+        registryFetchIntervalSeconds: 5
+        disable-delta: true
+        register-with-eureka: true
+        # ?? ???? ????? true
+        fetch-registry: true
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/

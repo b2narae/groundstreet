@@ -1,0 +1,11 @@
+body {
+    /* Without this, There is spacing around the App.js  */
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

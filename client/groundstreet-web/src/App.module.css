@@ -1,0 +1,29 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 의미? */
+}
+
+.header {
+    background-color: #21cd66;
+    padding: 20px; /* px vs rem */
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    /* px is okay? */
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.footer {
+    background-color: orange;
+    padding: 20px;
+    text-align: center;
+}

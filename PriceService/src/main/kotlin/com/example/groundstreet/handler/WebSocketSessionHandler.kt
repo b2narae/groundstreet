@@ -30,6 +30,7 @@ class WebSocketSessionHandler : BinaryWebSocketHandler() {
         afterConnectionEstablishedMethod.invoke(delegate, session)
     }
 
+    // Binary Message였음.
     override fun handleBinaryMessage(session: WebSocketSession, message: BinaryMessage) {
         handleBinaryMessageMethod.invoke(delegate, session, message)
     }

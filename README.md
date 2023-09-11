@@ -37,12 +37,14 @@ This is a stock trading system for the US NASDAQ market created for fun. The ent
 - junit 5.9.3
 - spring.dependency-management 1.1.0
 
+## Architecture Diagram
+![Architecture Diagram](https://github.com/b2narae/groundstreet/assets/37679254/a441f5de-d7eb-47b3-84f9-a1914cef0040)
 
 ## Event Definition 
-![Event Storming](Event%20Storming.png)
+![Event Storming](https://github.com/b2narae/groundstreet/assets/37679254/8dbf9e0f-933e-4bb0-9f85-74a48eb4d988)
 
 ## Entity Model 
-![Entity Modeler]([Entity%20Modeler.png](https://github.com/b2narae/groundstreet/assets/37679254/8dbf9e0f-933e-4bb0-9f85-74a48eb4d988))
+![Entity Modeler]([Entity%20Modeler.png](https://github.com/b2narae/groundstreet/assets/37679254/f07eb084-0a7c-45aa-b700-d8f477baf76a)
 
 ## Directory
 ```

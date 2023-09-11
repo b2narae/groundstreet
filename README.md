@@ -42,7 +42,7 @@ This is a stock trading system for the US NASDAQ market created for fun. The ent
 ![Event Storming](Event%20Storming.png)
 
 ## Entity Model 
-![Entity Modeler](Entity%20Modeler.png)
+![Entity Modeler]([Entity%20Modeler.png](https://github.com/b2narae/groundstreet/assets/37679254/8dbf9e0f-933e-4bb0-9f85-74a48eb4d988))
 
 ## Directory
 ```
